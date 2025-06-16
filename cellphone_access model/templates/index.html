@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CellPhone Accessibility Check.</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: rgb(107, 36, 141);
+            padding: 20px;
+
+    }
+    .container {
+            background-color: white;
+            padding: 30px;
+            max-width: 600px;
+            margin: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(15, 15, 15, 0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        
+        label {
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color:rgb(107, 36, 141);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color:rgb(36, 141, 48);
+        }
+        .prediction {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 18px;
+            color: green;
+        }
+</style>
+</head>
+<body>
+    <div class="container">
+        <h2>CellPhone Accessibility Check.</h2>
+        <form method="POST" action="/predict">
+            <label> What your country ?</label>
+            <select name="country" required>
+                <option value="Rwanda">Rwanda</option>
+                <option value="Tanzania">Tanzania</option>
+                <option value="Kenya">Kenya</option>
+                <option value="Uganda">Uganda</option>
+            </select>
+
+            <label>Year:</label>
+            <select name="year" required>
+                <option value="2016">2016</option>
+                <option value="2017">2017</option>
+                <option value="2018">2018</option>
+            </select>
+
+            <label>Do you have a bank account ?</label>
+            <select name="bank_account" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+
+            <label> Select location type:</label>
+            <select name="location_type" required>
+                <option value="Rural">Rural</option>
+                <option value="Urban">Urban</option>
+            </select>
+
+            <label> Input your house hold size:</label>
+            <input type="number" name="household_size" required>
+
+            <label>What is your Age ?</label>
+            <input type="number" name="age_of_respondent" required>
+
+            <label>Select your Gender:</label>
+            <select name="gender_of_respondent" required>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+
+            <label> What your relationship with the head of the house ?</label>
+            <select name="relationship_with_head" required>
+                <option value="Head of Household">Head of Household</option>
+                <option value="Spouse">Spouse</option>
+                <option value="Child">Child</option>
+                <option value="Parent">Parent</option>
+                <option value="Other relative">Other relative</option>
+                <option value="Other non-relatives">Other non-relatives</option>
+            </select>
+
+            <label>Select the marital status that best suit you:</label>
+            <select name="marital_status" required>
+                <option value="Head Married/Living together">Married/Living together</option>
+                <option value="Single/Never Married">Single/Never Married</option>
+                <option value="Widowed">Widowed</option>
+                <option value="Divorced/Seperated">Divorced/Separated</option>
+                <option value="Dont know">Don't know</option>
+            </select>
+
+            <label> Select your level of education</label>
+            <select name="education_level" required>
+                <option value="No formal education">No formal education</option>
+                <option value="Vocational/Specialised training">Vocational/Specialized training</option>
+                <option value="Primary education">Primary education</option>
+                <option value="Secondary education">Secondary education</option>
+                <option value="Tertiary education">Tertiary education</option>
+                <option value="Other/Dont know/RTA">Other/Don't know/RTA</option>
+            </select>
+
+            <label>Select your job type:</label>
+            <select name="job_type" required>
+                <option value="Self employed">Self employed</option>
+                <option value="Government Dependent">Government Funds</option>
+                <option value="Remittance Dependent">Remittance Dependent</option>
+                <option value="Farming and Fishing">Farming and Fishing</option>
+                <option value="Formally employed Private">Employed by private sector</option>
+                <option value="Formally employed Government">Employed by Government</option>
+                <option value="Informally employed">Family Business</option>
+                <option value="Other Income">Other Income</option>
+                <option value="No Income">No Income</option>
+                <option value="Dont Know/Refuse to answer">Don't Know/Refuse to answer</option>
+            </select>
+
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if prediction %}
+        <div class="prediction">
+            <strong>Prediction:</strong> {{ prediction }}
+        </div>
+        {% endif %}
+
+
+    </div>
+    
+
+</body>
+</html>
