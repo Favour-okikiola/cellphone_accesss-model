@@ -1,2 +1,2 @@
 # cellphone_accesss-model
-this is a machine model train to with a cellphone access dataset to predict if user will gain access to a cellphone
+this is a machine learning model train with a cellphone_access dataset to predict if user will gain access to a cellphone
